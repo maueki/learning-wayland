@@ -6,6 +6,7 @@
 #include <wayland-server.h>
 
 #include "compositor.h"
+#include "shell.h"
 
 bool egl_init(wl_display* wl_disp);
 
@@ -20,6 +21,7 @@ int main(int argc, char *argv[])
     assert(socket_name);
 
     auto compositor = std::make_unique<Compositor>(display);
+    auto shell = std::make_unique<Shell>(display);
 
     printf("hello, wayland\n");
     wl_display_run(display);
