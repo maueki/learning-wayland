@@ -1,4 +1,5 @@
 #include "shell.h"
+#include "shell-surface.h"
 
 #include <xdg-shell-server-protocol.h>
 #include <cassert>
@@ -35,7 +36,8 @@ void Shell::create_positioner(wl_client* client, wl_resource* resource,
 
 void Shell::get_xdg_surface(wl_client* client, wl_resource* resource,
                             uint32_t id, wl_resource* surface) {
-    fprintf(stderr, "Shell::get_xdg_surface not implemented\n");
+    auto shell_surface = new ShellSurface(client, id);
+    assert(shell_surface);
 }
 
 void Shell::pong(wl_client* client, wl_resource* resource, uint32_t serial) {
