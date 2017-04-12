@@ -20,6 +20,6 @@ wayland_server_code = custom_target('wayland-server-code',
                                     input:  '/usr/share/wayland/wayland.xml',
                                     command: [scanner_path, 'code' ,'@INPUT@', '@OUTPUT@'])
 
-executable('server', 'main.cpp', 'egl.cpp',
+executable('server', 'main.cpp', 'egl.cpp', 'compositor.cpp',
            wayland_server_header, wayland_server_code,
            dependencies : [wl_server, egl, glesv2, x11, xcb, x11_xcb])
