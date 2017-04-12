@@ -1,4 +1,5 @@
 #include "shell-surface.h"
+#include "toplevel.h"
 
 #include <xdg-shell-server-protocol.h>
 #include <cassert>
@@ -30,7 +31,8 @@ void ShellSurface::destroy(wl_client* client, wl_resource* resource) {
 
 void ShellSurface::get_toplevel(struct wl_client* client,
                                 struct wl_resource* resource, uint32_t id) {
-    fprintf(stderr, "ShellSurface::get_toplevel not implemented\n");
+    auto toplevel = new Toplevel(client, id);
+    assert(toplevel);
 }
 
 void ShellSurface::get_popup(wl_client* client, wl_resource* resource,

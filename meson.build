@@ -31,7 +31,7 @@ xdg_shell_server_code = custom_target('xdg-shell-code',
                                         command: [scanner_path, 'code' ,'@INPUT@', '@OUTPUT@'])
 
 
-executable('server', 'main.cpp', 'egl.cpp', 'compositor.cpp', 'shell.cpp', 'surface.cpp', 'shell-surface.cpp',
+executable('server', 'main.cpp', 'egl.cpp', 'compositor.cpp', 'shell.cpp', 'surface.cpp', 'shell-surface.cpp', 'toplevel.cpp',
            wayland_server_header, wayland_server_code,
            xdg_shell_server_header, xdg_shell_server_code,
            dependencies : [wl_server, egl, glesv2, x11, xcb, x11_xcb])
