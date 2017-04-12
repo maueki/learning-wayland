@@ -1,5 +1,6 @@
 
 #include "compositor.h"
+#include "surface.h"
 #include <wayland-server-protocol.h>
 #include <cassert>
 #include <cstdio>
@@ -26,7 +27,8 @@ void Compositor::global_bind(wl_client* client, void* data, uint32_t version,
 
 void Compositor::create_surface(wl_client* client, wl_resource* resource,
                                 uint32_t id) {
-    fprintf(stderr, "Compositor::create_surface not implemented\n");
+    auto surface = new Surface(client, id);
+    assert(surface);
 }
 
 void Compositor::create_region(struct wl_client* client,
