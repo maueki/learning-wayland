@@ -1,4 +1,4 @@
-project('learning-wayland', 'cpp', 'c')
+project('learning-wayland', 'cpp', 'c', default_options : ['cpp_std=c++14'])
 
 wl_server = dependency('wayland-server')
 egl = dependency('egl')
