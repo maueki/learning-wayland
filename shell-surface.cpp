@@ -23,6 +23,8 @@ ShellSurface::ShellSurface(wl_client* client, uint32_t id) {
 
     wl_resource_set_implementation(resource, &shell_surface_interface, this,
                                    &destroy_shell_surface);
+
+    zxdg_surface_v6_send_configure(resource, 1);
 }
 
 void ShellSurface::destroy(wl_client* client, wl_resource* resource) {
